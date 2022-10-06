@@ -11,7 +11,9 @@ router.post('/story', function(req, res){
   let body = req.body;
   let newStory = getStory(body);
   res.render('story', {
-    newStory: newStory
+    newStory: newStory,
+    color: generateRandomHexCode(),
+    colorText: generateRandomHexCode()
   });
 })
 
@@ -30,13 +32,22 @@ function getStory(formData) {
 }
 
 function generateStory1(formData) {
-  return `Twas a dark and stormy ${formData.noun1}. The ${formData.adj1} pumpkins started to ${formData.verb1}!`
+  return `Twas a dark and stormy ${formData.noun1}. The ${formData.adj1} houses started to ${formData.verb1}! The ${formData.noun2} ${formData.verb2}ed, the ${formData.adj2} town was torn asunder. There was no ${formData.verb3} from this ${formData.adj3} ${formData.noun3}.`
+
 }
 
 function generateStory2(formData) {
-  return `Twas a cold and wintery ${formData.noun1}. The ${formData.adj1} houses started to ${formData.verb1}!`
+  return `Everything was ${formData.adj1} in this ${formData.noun1}. The ${formData.noun2} ${formData.verb1} ${formData.adj2} songs, the sun ${formData.verb2}ed brighter here than most other places. So it was a ${formData.verb3} that this ${formData.adj3} city was named ${formData.noun3}.`
 }
 
 function generateStory3(formData) {
-  return `Twas a rainy and cold ${formData.noun1}. The ${formData.adj1} graves started to ${formData.verb1}!`
+  return `An ${formData.adj1} day in the life of Stanley. ${formData.verb1}, get some ${formData.noun1}, get to ${formData.noun2} to ${formData.verb2} a ${formData.noun3} every second. It was nothing special, this ${formData.adj2}, ${formData.adj3} life of his. But, one day, everything ${formData.verb3}d.`
+}
+
+function generateRandomHexCode() {
+  let hexCode = "#"
+  while (hexCode.length < 7) {
+    hexCode += (Math.round(Math.random() * 15)).toString(16)
+  }
+  return hexCode
 }
