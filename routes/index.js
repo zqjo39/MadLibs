@@ -30,14 +30,16 @@ router.post('/story', function(req, res){
 module.exports = router;
 
 function getStory(formData) {
+  if (formData.storyChoice === "#") {
+    formData.storyChoice = `${randomStoryChoice()}`;
+    console.log(formData.storyChoice)
+  }
   if (formData.storyChoice === "1") {
     return generateStory1(formData);
   } else if (formData.storyChoice === "2") {
     return generateStory2(formData);
   } else if (formData.storyChoice === "3") {
     return generateStory3(formData);
-//  } else if (formData.storyChoice === "#") {
-//    formData.storyChoice === `${Math.floor(Math.random()* 3)}`;
   } else {
     return "invalid";
   }
@@ -64,9 +66,8 @@ function generateRandomHexCode() {
   return hexCode
 }
 
-/*
+
 function randomStoryChoice() {
-  let randomNum = Math.floor(Math.random()* 3);
+  let randomNum = Math.floor(Math.random()* 3 + 1);
   return randomNum
 }
-*/
