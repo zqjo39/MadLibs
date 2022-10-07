@@ -4,36 +4,37 @@ block content
   h1 Enter Your Words
   form(method = "POST" action = "/story" id = "words")
     label(for = "noun1") Noun:
-    input(type = "text" name = "noun1" id = "noun1")
+    input(type = "text" name = "noun1" id = "noun1" value = `${noun1}`)
     br
     label(for = "noun2") Noun:
-    input(type = "text" name = "noun2" id = "noun2")
+    input(type = "text" name = "noun2" id = "noun2" value = `${noun2}`)
     br
     label(for = "noun3") Noun:
-    input(type = "text" name = "noun3" id = "noun3")
+    input(type = "text" name = "noun3" id = "noun3" value = `${noun3}`)
     br
     label(for = "verb1") Verb:
-    input(type = "text" name = "verb1" id = "verb1")
+    input(type = "text" name = "verb1" id = "verb1" value = `${verb1}`)
     br
     label(for = "verb2") Verb:
-    input(type = "text" name = "verb2" id = "verb2")
+    input(type = "text" name = "verb2" id = "verb2" value = `${verb2}`)
     br
     label(for = "verb3") Verb:
-    input(type = "text" name = "verb3" id = "verb3")
+    input(type = "text" name = "verb3" id = "verb3" value = `${verb3}`)
     br
     label(for = "adj1") Adjective:
-    input(type = "text" name = "adj1" id = "adj1")
+    input(type = "text" name = "adj1" id = "adj1" value = `${adj1}`)
     br
     label(for = "adj2") Adjective:
-    input(type = "text" name = "adj2" id = "adj2")
+    input(type = "text" name = "adj2" id = "adj2" value = `${adj2}`)
     br
     label(for = "adj3") Adjective:
-    input(type = "text" name = "adj3" id = "adj3")
+    input(type = "text" name = "adj3" id = "adj3" value = `${adj3}`)
     br
     label(for = "storyChoice") Choose One
     select(form = "words" name = "storyChoice" id = "storyChoice")
       option(value = "1") Story One
       option(value = "2") Story Two
       option(value = "3") Story Three
+      option(value = "#") I'm Feeling Lucky
     br
     button(type = "submit" form = "words") Tell Me A Story

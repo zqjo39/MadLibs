@@ -3,7 +3,17 @@ var router = express.Router();
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-  res.render('index');
+  res.render('index', {
+    noun1: "night",
+    noun2: "children",
+    noun3: "day",
+    verb1: "crumble",
+    verb2: "scream",
+    verb3: "hope",
+    adj1: "old",
+    adj2: "grand",
+    adj3: "terrible"
+  });
 });
 
 /* POST form data */
@@ -26,22 +36,24 @@ function getStory(formData) {
     return generateStory2(formData);
   } else if (formData.storyChoice === "3") {
     return generateStory3(formData);
+//  } else if (formData.storyChoice === "#") {
+//    formData.storyChoice === `${Math.floor(Math.random()* 3)}`;
   } else {
     return "invalid";
   }
 }
 
 function generateStory1(formData) {
-  return `Twas a dark and stormy ${formData.noun1}. The ${formData.adj1} houses started to ${formData.verb1}! The ${formData.noun2} ${formData.verb2}ed, the ${formData.adj2} town was torn asunder. There was no ${formData.verb3} from this ${formData.adj3} ${formData.noun3}.`
+  return `Twas a dark and stormy ${formData.noun1.toUpperCase()}, when the ${formData.adj1.toUpperCase()} houses started to ${formData.verb1.toUpperCase()}! The ${formData.noun2.toUpperCase()} ${formData.verb2.toUpperCase()}ED and the ${formData.adj2.toUpperCase()} town was torn asunder. There was no ${formData.verb3.toUpperCase()} from this ${formData.adj3.toUpperCase()} ${formData.noun3.toUpperCase()}.`
 
 }
 
 function generateStory2(formData) {
-  return `Everything was ${formData.adj1} in this ${formData.noun1}. The ${formData.noun2} ${formData.verb1} ${formData.adj2} songs, the sun ${formData.verb2}ed brighter here than most other places. So it was a ${formData.verb3} that this ${formData.adj3} city was named ${formData.noun3}.`
+  return `Everything was ${formData.adj1.toUpperCase()} in this ${formData.noun1.toUpperCase()}. The ${formData.noun2.toUpperCase()} ${formData.verb1.toUpperCase()} ${formData.adj2.toUpperCase()} songs, the sun ${formData.verb2.toUpperCase()}ED brighter here than most other places. So it was a ${formData.verb3.toUpperCase()} that this ${formData.adj3.toUpperCase()} city was named "${formData.noun3.toUpperCase()}".`
 }
 
 function generateStory3(formData) {
-  return `An ${formData.adj1} day in the life of Stanley. ${formData.verb1}, get some ${formData.noun1}, get to ${formData.noun2} to ${formData.verb2} a ${formData.noun3} every second. It was nothing special, this ${formData.adj2}, ${formData.adj3} life of his. But, one day, everything ${formData.verb3}d.`
+  return `An ${formData.adj1.toUpperCase()} day in the life of Stanley. ${formData.verb1.toUpperCase()}, get some ${formData.noun1.toUpperCase()}, get to ${formData.noun2.toUpperCase()} to ${formData.verb2.toUpperCase()} a ${formData.noun3.toUpperCase()} every second. It was nothing special, this ${formData.adj2.toUpperCase()}, ${formData.adj3.toUpperCase()} life of his. But, one day, everything ${formData.verb3.toUpperCase()}D.`
 }
 
 function generateRandomHexCode() {
@@ -51,3 +63,10 @@ function generateRandomHexCode() {
   }
   return hexCode
 }
+
+/*
+function randomStoryChoice() {
+  let randomNum = Math.floor(Math.random()* 3);
+  return randomNum
+}
+*/
